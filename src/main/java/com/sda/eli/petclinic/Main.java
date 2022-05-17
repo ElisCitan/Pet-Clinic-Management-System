@@ -1,11 +1,15 @@
 package com.sda.eli.petclinic;
 
+import com.sda.eli.petclinic.controller.VeterinarianController;
 import com.sda.eli.petclinic.utils.SessionManager;
-import org.hibernate.Session;
 
 public class Main {
-    public static  void main(String[] arg){
-//temporary
+    public static void main(String[] args) {
+        // temporary change until we have the repository implementation
         SessionManager.getSessionFactory().openSession();
+        SessionManager.getSessionFactory();
+        VeterinarianController veterinarianController = new VeterinarianController();
+        veterinarianController.create();
+
     }
 }
