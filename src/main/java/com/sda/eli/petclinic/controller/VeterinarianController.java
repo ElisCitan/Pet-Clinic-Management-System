@@ -3,8 +3,10 @@ package com.sda.eli.petclinic.controller;
 
 import com.sda.eli.petclinic.service.VeterinarianService;
 import com.sda.eli.petclinic.service.VeterinarianServiceImpl;
+import com.sda.eli.petclinic.service.dto.VeterinarianDto;
 import com.sda.eli.petclinic.service.exception.InvalidParameterException;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class VeterinarianController {
@@ -32,10 +34,26 @@ public class VeterinarianController {
             System.out.println("The veterinarian " + firstName + " was created.");
         } catch (InvalidParameterException e) {
             System.out.println(e.getMessage());
-        }catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println("The veterinarian was not created, internal server error.");
         }
     }
 
-
+    public void showAllVeterinarian() {
+        List<VeterinarianDto> veterinarians = veterinarianService.findAll();
+        if (veterinarians.isEmpty()) {
+            System.out.println("No vets");
+            return;
+        }
+        veterinarians.stream()
+                .forEach(veterinarianDto ->
+                        System.out.println(
+                                "\nID: " + veterinarianDto.getId()
+                                        + "\nFirst Name " + veterinarianDto.getFirstName()
+                                        + "\nLast Name " + veterinarianDto.getLastName()
+                                        + "\nAddress " + veterinarianDto.getAddress()
+                                        + "\nSpeciality " + veterinarianDto.getSpeciality()
+                        )
+                );
+    }
 }
