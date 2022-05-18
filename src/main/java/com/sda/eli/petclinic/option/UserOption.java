@@ -6,6 +6,7 @@ import java.util.Optional;
 public enum UserOption {
     ADD_NEW_VET("Add new veterinarian", 1),
     SHOW_ALL("Display all veterinarian", 2),
+    DELETE_ID("Delete veterinarian by id:", 3),
     EXIT("Exit", 999),
     UNKNOWN("Unknown option, try again ",1000);
 

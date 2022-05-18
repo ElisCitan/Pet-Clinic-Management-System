@@ -13,4 +13,5 @@ public interface VeterinarianService {
     //DTO-> data transfer object
     List<VeterinarianDto> findAll();
 
+   void deleteById(Long id);
 }
