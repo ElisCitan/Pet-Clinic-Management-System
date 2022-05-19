@@ -23,34 +23,36 @@ public class PetController {
     }
 
     public void addPet() {
-        System.out.println("Please insert race.");
-        String raceInput = scanner.nextLine();
+        try {
 
-        System.out.println("Please insert date of birth.");
-        String dateInput = scanner.nextLine();
-        Date birthdate = FORMATTER.parse(dateInput);
+            System.out.println("Please insert race.");
+            String raceInput = scanner.nextLine();
 
-        System.out.println("Please insert true if the pet is vaccinated of false otherwise.");
-        boolean isVaccinateState = scanner.nextBoolean() ;
+            System.out.println("Please insert date of birth.");
+            String dateInput = scanner.nextLine();
+            Date birthdate = FORMATTER.parse(dateInput);
 
-        System.out.println("Please insert the owner's first name ");
-        String firstName=scanner.nextLine();
+            System.out.println("Please insert true if the pet is vaccinated of false otherwise.");
+            boolean isVaccinateState = Boolean.parseBoolean(scanner.nextLine());
 
-        System.out.println("Please insert the owner's last name ");
-       String lastName=scanner.nextLine();
+            System.out.println("Please insert the owner's first name ");
+            String firstName = scanner.nextLine();
 
-       petService.create(raceInput, birthdate, isVaccinateState, firstName, lastName);
+            System.out.println("Please insert the owner's last name ");
+            String lastName = scanner.nextLine();
 
-    }catch(ParseException e){
-        System.out.println("Please insert a correct date of birth " + DATE_FORMAT + ".");
-    }catch (
-    InputMismatchException e){
-        System.out.println("Please insert tru or false for the vaccinated status");
+            petService.create(raceInput, birthdate, isVaccinateState, firstName, lastName);
 
-    }catch (InvalidParameterException e){
-        System.out.println(e.getMessage());
-    }catch(Exception e){
-        System.out.println("Internal server error.");
+        } catch (ParseException e) {
+            System.out.println("Please insert a correct date of birth " + DATE_FORMAT + ".");
+        } catch (
+                InputMismatchException e) {
+            System.out.println("Please insert tru or false for the vaccinated status");
+
+        } catch (InvalidParameterException e) {
+            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Internal server error.");
+        }
     }
-
 }

@@ -13,7 +13,7 @@ import javax.swing.plaf.SplitPaneUI;
 import java.util.Date;
 import java.util.Optional;
 
-public class PetServiceImpl extends PetService {
+public class PetServiceImpl implements PetService {
     private final PetRepository petRepository;
     private final ClientRepository clientRepository;
 
@@ -23,7 +23,8 @@ public class PetServiceImpl extends PetService {
     }
 
     @Override
-    public void create(String race, Date birthDate, boolean isVaccinated, String ownerFirstName, String ownerLastName) throws InvalidParameterException {
+    public void create(String race, Date birthDate, boolean isVaccinated, String ownerFirstName, String ownerLastName)
+            throws InvalidParameterException {
         if (race == null || race.isBlank()) {
             throw new InvalidParameterException("The race is null or blank.");
         }

@@ -14,6 +14,7 @@ public class Main {
         SessionManager.getSessionFactory();
         VeterinarianController veterinarianController = new VeterinarianController();
         //veterinarianController.create();
+        PetController petController =new PetController();
         Scanner scanner = new Scanner(System.in);
 
         UserOption option = UserOption.UNKNOWN;
@@ -40,10 +41,10 @@ public class Main {
                     break;
                 case UPDATE:
                     veterinarianController.update();
-                //case ADD_NEW_PET:
-
-                  //  petController.addPet();
-                 //   break;
+                    break;
+                case ADD_NEW_PET:
+                    petController.addPet();
+                  break;
                 case UNKNOWN:
                     break;
                 case EXIT:
