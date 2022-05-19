@@ -1,4 +1,6 @@
 package com.sda.eli.petclinic.repository.base;
+import com.sda.eli.petclinic.service.dto.VeterinarianDto;
+
 import java.util.List;
 import java.util.Optional;
 

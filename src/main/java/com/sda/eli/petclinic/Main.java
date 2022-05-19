@@ -1,5 +1,6 @@
 package com.sda.eli.petclinic;
 
+import com.sda.eli.petclinic.controller.PetController;
 import com.sda.eli.petclinic.controller.VeterinarianController;
 import com.sda.eli.petclinic.option.UserOption;
 import com.sda.eli.petclinic.utils.SessionManager;
@@ -37,6 +38,12 @@ public class Main {
                 case DELETE_ID:
                     veterinarianController.deleteById();
                     break;
+                case UPDATE:
+                    veterinarianController.update();
+                //case ADD_NEW_PET:
+
+                  //  petController.addPet();
+                 //   break;
                 case UNKNOWN:
                     break;
                 case EXIT:
