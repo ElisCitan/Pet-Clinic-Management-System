@@ -53,6 +53,7 @@ public class PetController {
             System.out.println(e.getMessage());
         } catch (Exception e) {
             System.out.println("Internal server error.");
+            e.printStackTrace();
         }
     }
 
