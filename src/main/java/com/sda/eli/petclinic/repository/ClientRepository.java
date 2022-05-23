@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface ClientRepository extends BaseRepository<Client, Long> {
 
     Optional<Client> findByFirstNameAndLastName(String ownerFirstName, String ownerLastName);
+    Optional<Client> findByClientId (Long id);
 }

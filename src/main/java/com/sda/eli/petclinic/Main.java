@@ -1,5 +1,6 @@
 package com.sda.eli.petclinic;
 
+import com.sda.eli.petclinic.controller.ClientController;
 import com.sda.eli.petclinic.controller.PetController;
 import com.sda.eli.petclinic.controller.VeterinarianController;
 import com.sda.eli.petclinic.option.UserOption;
@@ -16,6 +17,7 @@ public class Main {
         //veterinarianController.create();
         PetController petController =new PetController();
         Scanner scanner = new Scanner(System.in);
+        ClientController clientController=new ClientController();
 
         UserOption option = UserOption.UNKNOWN;
         do {
@@ -47,6 +49,10 @@ public class Main {
                   break;
                 case VIEW_ALL_VACCINATED:
                     petController.showAllVaccinated();
+                    break;
+                case VIEW_ALL_PETS_FOR_CLIENT_ID:
+
+                    clientController.viewAllPetsForClient();
                     break;
                 case UNKNOWN:
                     break;
